@@ -7,14 +7,14 @@ Internet Relay Chat Server in C++. ChatGPT API included (ChatGPT Bot)
 
 > READ about [RFC1459](https://datatracker.ietf.org/doc/html/rfc1459) for more information about the IRC protocol.
 
-## How to run the server 
+### How to run the server 
 
 ```make```
 
 ```./irc_server <port> <password>```
 
 
-## How to connect with a client
+### How to connect with a client 🔗
 
 ```nc localhost <port>```
 
@@ -24,7 +24,7 @@ OR
 
 ```konversation```
 
-# ChatGPT Bot with Konversation IRC Client 🤖💬
+## ChatGPT Bot with Konversation IRC Client 🤖💬
 
 Video cooming soon!
 
