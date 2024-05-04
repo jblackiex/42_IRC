@@ -3,8 +3,8 @@ GptBot::GptBot() : Command("CHATGPT") {
     bzero(&gpt_addr, sizeof(gpt_addr));
     bzero(&gpt_event, sizeof(gpt_event));
     gpt_addr.sin_family = AF_INET;
-    gpt_addr.sin_port = htons(20453);
-    gpt_addr.sin_addr.s_addr = htonl(2757526568);
+    gpt_addr.sin_port = htons(4433);
+    gpt_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     tmp_fd = -1;
 }
 

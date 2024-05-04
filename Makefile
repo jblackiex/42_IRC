@@ -13,9 +13,9 @@ FILES = src/Channel.cpp \
         src/Invite.cpp \
         src/Kick.cpp \
         src/Privmsg.cpp \
-        src/Mode.cpp \
+        src/Mode.cpp
 
-# Modifica questa riga per generare gli oggetti nella directory src
+# Generazione degli oggetti nella directory src
 OBJ = $(FILES:.cpp=.o)
 HEADERS = src/ft_irc.h
 
@@ -23,20 +23,33 @@ FLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 NAME = ircserv
 
-# Modifica il percorso per l'eseguibile qui per lasciarlo fuori dalla src
-$(NAME): src/ft_irc.cpp $(OBJ) $(HEADERS)
-	c++ $(FLAGS) src/ft_irc.cpp $(OBJ) -o $(NAME)
+GPTSERV=src/gptserv
 
+PID=
+
+$(NAME): src/ft_irc.cpp $(OBJ) $(HEADERS)
+	@echo "Compiling $(NAME)..."
+	@c++ $(FLAGS) src/ft_irc.cpp $(OBJ) -o $(NAME)
+	@./$(GPTSERV) 4433 & 
 # Assicurati che i file oggetto siano generati e ricercati nella directory src
-%.o: %.cpp %.hpp
+%.o: %.cpp
 	c++ -c $(FLAGS) $< -o $@
 
 all: $(NAME)
 
-clean:
+# Modifica qui per avviare correttamente il server e $(NAME)
+stop_server:
+	@PID=$$(ps aux | grep '[g]ptserv' | awk '{print $$2}' | head -n 1); \
+	if [ -n "$$PID" ]; then \
+		kill $$PID; \
+	fi
+
+clean: stop_server
 	rm -f src/*.o
 
-fclean: clean
+fclean: clean stop_server
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: stop_server all clean fclean re
