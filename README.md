@@ -26,9 +26,6 @@ OR
 
 ## ChatGPT Bot with Konversation IRC Client 🤖💬
 
-<img src="https://github.com/jblackiex/42_IRC/blob/757f2d3404e1e4f54b0cafbff9ee7d6018773c2a/map_enemy3.png" alt="map_enemy3.ber" style="width:250px;height:100px;" border="3">
+<img src="https://github.com/jblackiex/42_IRC/blob/757f2d3404e1e4f54b0cafbff9ee7d6018773c2a/map_enemy3.png" alt="gptbot" style="width:1440px;height:810px;" border="2">
 
-<hr>
-FULL VIDEO --> https://youtu.be/h29gZz1peB0
-<hr>
 Built by [@nbordoni](https://github.com/jblackiex), [@lnascari](https://github.com/lnascari) and [@gpaoline](https://github.com/lnascari)
