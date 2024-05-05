@@ -26,7 +26,7 @@ OR
 
 ## ChatGPT Bot with Konversation IRC Client 🤖💬
 
-Video cooming soon!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/h29gZz1peB0" frameborder="1" allowfullscreen></iframe>
 
 
 Built by [@nbordoni](https://github.com/jblackiex), [@lnascari](https://github.com/lnascari) and [@gpaoline](https://github.com/lnascari)

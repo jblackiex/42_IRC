@@ -95,7 +95,7 @@ void chat_gpt(std::string &client_msg, std::string &output, int fd) {
         (char*)"curl",
         (char*)"https://api.openai.com/v1/chat/completions",
         (char*)"-H", (char*)"Content-Type: application/json",
-        (char*)"-H", (char*)"Authorization: Bearer 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", // Sostituisci YOUR_API_KEY con la tua chiave API effettiva
+        (char*)"-H", (char*)"Authorization: Bearer ", // Sostituisci YOUR_API_KEY con la tua chiave API effettiva
         (char*)"-d", (char*)data.c_str(),
         nullptr // L'ultimo elemento deve essere nullptr per indicare la fine dell'array
     };
