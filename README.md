@@ -25,8 +25,10 @@ OR
 ```konversation```
 
 ## ChatGPT Bot with Konversation IRC Client 🤖💬
-<hr>
---> https://youtu.be/h29gZz1peB0
 
+<img src="https://github.com/jblackiex/42_IRC/blob/757f2d3404e1e4f54b0cafbff9ee7d6018773c2a/map_enemy3.png" alt="map_enemy3.ber" style="width:250px;height:100px;" border="3">
+
+<hr>
+FULL VIDEO --> https://youtu.be/h29gZz1peB0
 <hr>
 Built by [@nbordoni](https://github.com/jblackiex), [@lnascari](https://github.com/lnascari) and [@gpaoline](https://github.com/lnascari)
