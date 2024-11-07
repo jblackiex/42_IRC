@@ -27,5 +27,3 @@ OR
 ## ChatGPT Bot with Konversation IRC Client 🤖💬
 
 <img src="https://github.com/jblackiex/42_IRC/blob/main/gptbot.gif" alt="gptbot" width="auto" height="auto" border="2"/>
-
-Built by [@nbordoni](https://github.com/jblackiex), [@lnascari](https://github.com/lnascari) and [@gpaoline](https://github.com/lnascari)
