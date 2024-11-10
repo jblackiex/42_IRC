@@ -4,7 +4,7 @@
 
 //RPL MESSAGES//
 #define RPL_WELCOME(nick) ":ft_irc.network.eu 001 " + nick + " :Welcome to the Internet Relay Network " + nick + "\r\n"
-#define RPL_YOURHOST(nick) ":ft_irc.network.eu 002 " + nick + " :IRC_chat_V_3.0 with nbordoni,lnascari,gpaoline\r\n"
+#define RPL_YOURHOST(nick) ":ft_irc.network.eu 002 " + nick + " :IRC_chat_V_1.0\r\n"
 #define RPL_CREATED(nick) ":ft_irc.network.eu 003 " + nick + " :This server was created on 27/02/2024\r\n"
 #define RPL_MOTD(nick) ":ft_irc.network.eu 372 " + nick + " :- Welcome -\r\n"
 #define RPL_ENDOFMOTD(nick) ":ft_irc.network.eu 376 " + nick + " :End of MOTD command\r\n"
