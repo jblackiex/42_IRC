@@ -38,6 +38,10 @@ $(NAME): src/ft_irc.cpp $(OBJ) $(HEADERS)
 
 all: $(NAME)
 
+test:
+	@c++ -std=c++11 tests/test_main.cpp -o test_irc
+	@./test_irc
+
 # Modifica qui per avviare correttamente il server e $(NAME)
 stop_server:
 	@PID=$$(ps aux | grep '[g]ptserv' | awk '{print $$2}' | head -n 1); \
