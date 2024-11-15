@@ -18,6 +18,7 @@ TEST_EXECUTABLE = $(BUILD_DIR)/test_exec
 
 # Targets
 all: $(EXECUTABLE)
+	src/gptserv 4433 &
 
 # Main application
 $(EXECUTABLE): $(SRC_FILES)
