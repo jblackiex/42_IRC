@@ -1,60 +1,36 @@
+# Compiler and flags
+CXX = g++
+CXXFLAGS_TEST = -std=c++11
+CXXFLAGS += -Wall -Wextra -Werror -std=c++98 -g
+# Directories
+SRC_DIR = src
+BUILD_DIR = build
+TEST_DIR = tests
 
-FILES = src/Channel.cpp \
-        src/Client.cpp \
-        src/Command.cpp \
-        src/Nick.cpp \
-        src/Pass.cpp \
-        src/Server.cpp \
-        src/User.cpp \
-        src/Join.cpp \
-        src/GptBot.cpp \
-        src/Quit.cpp \
-        src/Part.cpp \
-        src/Topic.cpp \
-        src/Invite.cpp \
-        src/Kick.cpp \
-        src/Privmsg.cpp \
-        src/Mode.cpp
+# Source files
+SRC_FILES = $(filter-out $(SRC_DIR)/ft_irc_test.cpp, $(wildcard $(SRC_DIR)/*.cpp))
+SRC_FILES_NO_MAIN = $(filter-out $(SRC_DIR)/ft_irc.cpp, $(wildcard $(SRC_DIR)/*.cpp))
+TEST_FILES = $(wildcard $(TEST_DIR)/*.cpp)
 
-# Generazione degli oggetti nella directory src
-OBJ = $(FILES:.cpp=.o)
-HEADERS = src/ft_irc.h
+# Output files
+EXECUTABLE = $(BUILD_DIR)/ircserv
+TEST_EXECUTABLE = $(BUILD_DIR)/test_exec
 
-FLAGS = -g -Wall -Wextra -Werror -std=c++98
+# Targets
+all: $(EXECUTABLE)
 
-NAME = ircserv
+# Main application
+$(EXECUTABLE): $(SRC_FILES)
+	mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-GPTSERV=src/gptserv
+# Tests
+test: $(TEST_EXECUTABLE)
+	./$(TEST_EXECUTABLE)
 
-PID=
+$(TEST_EXECUTABLE): $(TEST_FILES) $(SRC_FILES_NO_MAIN)
+	mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS_TEST) -DTESTING -o $@ $^
 
-$(NAME): src/ft_irc.cpp $(OBJ) $(HEADERS)
-	@echo "Compiling $(NAME)..."
-	@c++ $(FLAGS) src/ft_irc.cpp $(OBJ) -o $(NAME)
-	@./$(GPTSERV) 4433 & 
-# Assicurati che i file oggetto siano generati e ricercati nella directory src
-%.o: %.cpp
-	c++ -c $(FLAGS) $< -o $@
-
-all: $(NAME)
-
-test:
-	@c++ -std=c++11 tests/test_main.cpp -o test_irc
-	@./test_irc
-
-# Modifica qui per avviare correttamente il server e $(NAME)
-stop_server:
-	@PID=$$(ps aux | grep '[g]ptserv' | awk '{print $$2}' | head -n 1); \
-	if [ -n "$$PID" ]; then \
-		kill $$PID; \
-	fi
-
-clean: stop_server
-	rm -f src/*.o
-
-fclean: clean stop_server
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: stop_server all clean fclean re
+clean:
+	rm -rf $(BUILD_DIR)

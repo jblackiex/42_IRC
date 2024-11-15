@@ -23,8 +23,8 @@ class Command {
         std::string command[17]; // comando separato in blocchi // max 17 blocchi (prefix + command + 15max parameters)
         std::string response; // risposta del server
         std::map<std::string, std::string> cmd_map; // per JOIN PRIVMSG e PART
-        bool space_checker(std::string &msg);
     public:
+        bool space_checker(std::string &msg);
         Command(std::string type);
 
         static Command *cmd_select(std::string &msg, int fd);
