@@ -8,16 +8,22 @@ class CommandConcrete : public Command {
         void cmd_gen_response(std::string &msg, int fd) {}
         void cmd_exec(int &fd) {}
 };
+CommandConcrete cmd("JOIN #channel");
 
-
-TEST_CASE("Command parsing") {
-    CommandConcrete cmd("JOIN #channel");
-    // CHECK(2 + 2 == 4);
+TEST_CASE("Command constructor") {
     CHECK(cmd.Get_type() == "JOIN #channel");
-    
-    // CHECK(cmd.getParams() == "#channel");
 }
 
-// TEST_CASE("Command errors") {
-//     // CHECK_THROWS_AS(Command(""), std::invalid_argument);
-// }
+TEST_CASE("Command space_checker") {
+    std::string msg_with_space = "Hello World";
+    std::string msg_without_space = "HelloWorld";
+    CHECK(cmd.space_checker(msg_with_space) == false);
+    CHECK(cmd.space_checker(msg_without_space) == false);
+}
+
+TEST_CASE("Command Set_commands and Get_commands") {
+    std::string commands[17] = {"cmd1", "cmd2", "cmd3", "cmd4", "cmd5", "cmd6", "cmd7", "cmd8", "cmd9", "cmd10", "cmd11", "cmd12", "cmd13", "cmd14", "cmd15", "cmd16", "cmd17"};
+    int INIT_POS = 0;
+    cmd.Set_commands(commands);
+    CHECK(cmd.Get_commands(INIT_POS).length() == 92);
+}
