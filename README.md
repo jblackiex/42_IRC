@@ -24,6 +24,6 @@ OR
 
 ```konversation```
 
-## ChatGPT Bot with Konversation IRC Client 🤖💬
+## GPT Bot with Konversation IRC Client 🤖💬
 
 <img src="https://github.com/jblackiex/42_IRC/blob/main/gptbot.gif" alt="gptbot" width="auto" height="auto" border="2"/>
